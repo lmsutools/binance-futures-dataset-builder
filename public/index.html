@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binance Data Fetcher</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Binance Futures Data Fetcher</h1>
+
+        <div class="form-group">
+            <label for="dataType">Data Type:</label>
+            <select id="dataType">
+                <option value="fundingRate">Funding Rate (BTCUSDT)</option>
+                <option value="openInterest">Open Interest (BTCUSDT)</option>
+                <option value="longShortRatio">Long/Short Ratio (BTCUSDT)</option>
+                <option value="takerVolume">Taker Buy/Sell Volume (BTCUSDT)</option>
+            </select>
+            <!-- Note: Symbol is hardcoded to BTCUSDT and Interval is fixed per data type in the current backend -->
+            <div class="info">(Symbol: BTCUSDT, Interval: Varies by data type)</div>
+        </div>
+
+        <div class="form-group">
+            <label for="startDate">Start Date:</label>
+            <input type="date" id="startDate" required>
+        </div>
+
+        <div class="form-group">
+            <label for="endDate">End Date:</label>
+            <input type="date" id="endDate" required>
+        </div>
+
+        <button id="fetchButton">Fetch Data</button>
+
+        <div id="loadingIndicator" class="loading">Loading...</div>
+
+        <div class="output-section">
+            <h2>Results</h2>
+            <div id="results" class="output">
+                <!-- Data will be displayed here -->
+                <p>Select parameters and click "Fetch Data".</p>
+            </div>
+        </div>
+
+        <div class="output-section">
+            <h2>API Response / Errors</h2>
+            <div id="responseOutput" class="output error">
+                <!-- Raw API response or errors will be displayed here -->
+                <p>API status and errors will appear here.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+</html>
